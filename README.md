@@ -10,7 +10,7 @@ Based on the analysis, I recommend the following actions to improve efficiency a
 3.	Use handle time distribution insights to refine training and standardize best practices.
 4.	Monitor funnel pass through rates to detect emerging operational issues before they impact customers.
 
-### Business Problem
+## Business Problem
 
 The call center needed a structured way to understand:
 - Where calls were dropping off in the support process
@@ -20,7 +20,7 @@ The call center needed a structured way to understand:
 
 Without a unified view, leaders were making decisions based on anecdotal feedback rather than data. The goal was to build a clear, actionable dashboard that visualizes the entire support funnel and highlights opportunities for operational improvement.
 
-### Methodology 
+## Methodology 
 
 1. 	SQL Data Extraction & Cleaning
 - Pulled call‑level data including timestamps, queue durations, handle times, and resolution outcomes.
@@ -35,7 +35,7 @@ Without a unified view, leaders were making decisions based on anecdotal feedbac
 - Applied UI/UX best practices: text hierarchy, card layout, accent lines, and consistent spacing.
 - Built filters and interactivity to allow leaders to drill into agent‑level performance.
 
-### Skills
+## Skills
 
 SQL: Date/time transformations, CASE logic, aggregations, data cleaning, binary category formatting
 
@@ -45,7 +45,7 @@ Analytics: Funnel analysis, performance diagnostics, segmentation, operational i
 
 Data Visualization: Layout design, color theory, hierarchy, user‑centric dashboarding
 
-### Results and Business Recommendation
+## Results and Business Recommendation
 
 ![Dashboard](images/dashboard-screen.png)
 
@@ -55,13 +55,13 @@ Data Visualization: Layout design, color theory, hierarchy, user‑centric dashb
 - Handle time distribution varied significantly, suggesting inconsistent workflows across agents.
 - Agent‑level segmentation highlighted both top performers and those needing targeted coaching, enabling more effective training and resource allocation.
 
-Recommendations
+### Recommendations
 1. 	Optimize staffing during peak queue periods to reduce wait times and improve customer satisfaction.
 2. 	Standardize best practices from top‑performing agents to reduce handle time variability.
 3. 	Use resolution‑rate insights to guide coaching and performance management.
 4. 	Monitor funnel pass‑through rates weekly to detect operational issues early.
 
-### Next Steps
+## Next Steps
 
 1. 	Integrate customer satisfaction (CSAT) data to connect operational performance with customer outcomes.
 2. 	Add call reason categorization to identify which issue types drive the longest handle times. This could also involve customer-facing error codes for more fluid communication.
