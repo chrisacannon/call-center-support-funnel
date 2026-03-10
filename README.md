@@ -47,6 +47,8 @@ Data Visualization: Layout design, color theory, hierarchy, user‑centric dashb
 
 ### Results and Business Recommendation
 
+![Dashboard](images/dashboard-screen.png)
+
   The analysis revealed several key insights:
 - 81% of calls were answered, and 89.9% of answered calls were resolved, indicating strong agent performance but room to improve initial responsiveness.
 - Queue time distribution showed a long tail, with a subset of calls waiting over 2 minutes — a clear opportunity for staffing optimization.
