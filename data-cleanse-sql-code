@@ -1,0 +1,34 @@
+with base as (
+    select
+        "Call Id" as call_id,
+        strptime(Date, '%d/%m/%Y %H:%M') as call_timestamp,
+        extract(hour from strptime(Date, '%d/%m/%Y %H:%M')) as call_hour,
+        case
+            when extract(hour from strptime(Date, '%d/%m/%Y %H:%M')) between 0 and 6 then 'Overnight'
+            when extract(hour from strptime(Date, '%d/%m/%Y %H:%M')) between 7 and 12 then 'Morning'
+            when extract(hour from strptime(Date, '%d/%m/%Y %H:%M')) between 13 and 17 then 'Afternoon'
+            else 'Evening'
+        end as hour_bucket,
+        Agent as agent,
+        Department as department,
+        case when "Answered (Y/N)" = 'Y' then 1 else 0 end as answered,
+        case when Resolved = 'Y' then 1 else 0 end as resolved,
+        case when "Answered (Y/N)" = 'Y' and Resolved = 'Y' then 1 else 0 end as closed,
+        "Speed of Answer" as wait_time_seconds,
+        AvgTalkDuration as talk_duration,
+        case
+            when AvgTalkDuration is null then null
+            else
+                cast(split_part(AvgTalkDuration, ':', 1) as integer) * 3600
+                + cast(split_part(AvgTalkDuration, ':', 2) as integer) * 60
+                + cast(split_part(AvgTalkDuration, ':', 3) as integer)
+        end as talk_duration_seconds,
+        "Satisfaction rating" as satisfaction_rating
+    from 
+        read_csv('Call-Center-Dataset.csv', types={'AvgTalkDuration': 'VARCHAR'})
+)
+select
+    *,
+    coalesce(wait_time_seconds, 0) + coalesce(talk_duration_seconds, 0) as call_duration_seconds
+from 
+    base
